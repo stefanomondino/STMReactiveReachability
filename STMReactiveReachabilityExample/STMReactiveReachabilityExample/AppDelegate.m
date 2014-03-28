@@ -14,8 +14,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [[[Reachability reachabilityForInternetConnection] rac_notifyAllNetworkChanges] subscribeNext:^(Reachability* x) {
-        NSLog(@"Continuous: %@",x.currentReachabilityString);
+    [[[Reachability reachabilityForInternetConnection] rac_notifyAllNetworkChanges] subscribeNext:^(Reachability* reachability) {
+        if (reachability.isReachable) {
+            NSLog(@"Network reachable!");
+        }
+        else {
+            NSLog (@"Network not reachable");
+        }
     }];
 
     return YES;

@@ -1,18 +1,12 @@
 Pod::Spec.new do |s|
   s.name             = "STMReactiveReachability"
   s.version          = "0.1.0"
-  s.summary          = "A short description of STMReactiveReachability."
-  s.description      = <<-DESC
-                       An optional longer description of STMReactiveReachability
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "http://EXAMPLE/NAME"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.summary          = "ReactiveCocoa extensions for Reachability"
+  s.description      = "A simple library that adapts Reachability into ReactiveCocoa world"
+  s.homepage         = "https://github.com/stefanomondino/STMReactiveReachability"
   s.license          = 'MIT'
   s.author           = { "Stefano Mondino" => "stefano.mondino.dev@gmail.com" }
-  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
+  s.source           = { :git => "git@github.com:stefanomondino/STMReactiveReachability.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/puntoste'
 
   s.platform     = :ios, '5.0'
