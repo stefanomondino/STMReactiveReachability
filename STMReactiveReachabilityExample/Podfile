@@ -1,7 +1,2 @@
 pod "STMReactiveReachability", :path => "../STMReactiveReachability.podspec"
 
-target "Demo" do
-end
-
-target "DemoTests" do
-end
