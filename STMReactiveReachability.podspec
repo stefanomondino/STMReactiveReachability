@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "STMReactiveReachability"
-  s.version          = "0.1.0"
+  s.version          = "1.0.0"
   s.summary          = "ReactiveCocoa extensions for Reachability"
   s.description      = "A simple library that adapts Reachability into ReactiveCocoa world"
   s.homepage         = "https://github.com/stefanomondino/STMReactiveReachability"
