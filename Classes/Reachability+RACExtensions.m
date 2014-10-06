@@ -8,7 +8,8 @@
 
 #import "Reachability+RACExtensions.h"
 #import <objc/runtime.h>
-@interface Reachability (RACExtensions)
+
+@interface Reachability ()
 @property (nonatomic, readonly) RACSignal* rac_reachSignal;
 @end
 
@@ -26,7 +27,7 @@
 - (RACSignal *)rac_reachSignal {
     
     typeof(self) wself = self;
-    RACSignal* r = objc_getAssociatedObject(self, @"kReachabilitySignal");
+    RACSignal* r = objc_getAssociatedObject(self, @"kReachabilitySignalPrivateKey");
     if (!r){
         
         r = [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -46,7 +47,7 @@
               publish]
              autoconnect];
         
-        objc_setAssociatedObject(self, @"kReachabilitySignal", r, OBJC_ASSOCIATION_RETAIN);
+        objc_setAssociatedObject(self, @"kReachabilitySignalPrivateKey", r, OBJC_ASSOCIATION_RETAIN);
     }
     return r;
 }
