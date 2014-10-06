@@ -13,16 +13,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    [[[Reachability reachabilityForInternetConnection] rac_notifyAllNetworkChanges] subscribeNext:^(Reachability* reachability) {
-        if (reachability.isReachable) {
-            NSLog(@"Network reachable!");
-        }
-        else {
-            NSLog (@"Network not reachable");
-        }
-    }];
 
+    RACDisposable* d1 = [[Reachability rac_notifyAllNetworkChanges] subscribeNext:^(Reachability* reachability) {
+        NSLog(@"Detected network change");
+    }];
+    RACDisposable* d2 = [[Reachability rac_notifyReachable] subscribeNext:^(id x) {
+        NSLog(@"Network is reachable? %@", [[x stringValue] uppercaseString]);
+    }];
+    
+    [[[RACSignal empty] delay:60] subscribeCompleted:^{
+        [d1 dispose];
+        [d2 dispose];
+    }];
     return YES;
 }
 							

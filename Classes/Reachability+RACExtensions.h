@@ -11,5 +11,10 @@
 
 @interface Reachability (RACExtensions)
 
-- (RACSignal*) rac_notifyAllNetworkChanges;
+//- (RACSignal*) rac_notifyAllNetworkChanges;
+
++ (RACSignal*) rac_notifyAllNetworkChanges ;
++ (RACSignal*) rac_notifyWifiReachable ;
++ (RACSignal*) rac_notifyWANReachable ;
++ (RACSignal*) rac_notifyReachable ;
 @end
