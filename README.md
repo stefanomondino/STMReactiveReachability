@@ -12,7 +12,7 @@ To run the example project; clone the repo, and run `pod install` from the STMRe
 Basic usage :
 
 ```  objective-c
-	[[[Reachability reachabilityForInternetConnection] rac_notifyAllNetworkChanges] subscribeNext:^(Reachability* reachability) {
+	[[rac_notifyAllNetworkChanges] subscribeNext:^(Reachability* reachability) {
         //Do what you need with reachability
     }];
 ```
@@ -32,4 +32,3 @@ Contributions are really welcome!
 ## License
 
 STMReactiveReachability is available under the MIT license. See the LICENSE file for more info.
-
